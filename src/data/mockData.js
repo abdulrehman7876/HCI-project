@@ -1,0 +1,121 @@
+export const cities = [
+  'Karachi', 'Lahore', 'Islamabad', 'Rawalpindi', 'Peshawar',
+  'Quetta', 'Multan', 'Faisalabad', 'Hyderabad', 'Sukkur'
+];
+
+export const trains = [
+  {
+    id: 'T001', name: 'Tezgam Express', number: '12 UP',
+    from: 'Karachi', to: 'Lahore',
+    departure: '08:00', arrival: '28:00', duration: '20h',
+    classes: ['Economy', 'Business', 'AC Sleeper'],
+    prices: { Economy: 1200, Business: 2800, 'AC Sleeper': 4500 },
+    seats: { Economy: 42, Business: 18, 'AC Sleeper': 6 },
+    status: 'On Time', delay: 0,
+    amenities: ['WiFi', 'Dining Car', 'AC'],
+    days: ['Mon', 'Wed', 'Fri', 'Sun'],
+  },
+  {
+    id: 'T002', name: 'Khyber Mail', number: '1 DN',
+    from: 'Karachi', to: 'Peshawar',
+    departure: '21:00', arrival: '51:00', duration: '30h',
+    classes: ['Economy', 'Business'],
+    prices: { Economy: 1500, Business: 3200 },
+    seats: { Economy: 60, Business: 22 },
+    status: 'Delayed', delay: 45,
+    amenities: ['Dining Car'],
+    days: ['Daily'],
+  },
+  {
+    id: 'T003', name: 'Green Line', number: '101 UP',
+    from: 'Karachi', to: 'Islamabad',
+    departure: '14:00', arrival: '36:00', duration: '22h',
+    classes: ['Business', 'AC Sleeper'],
+    prices: { Business: 3500, 'AC Sleeper': 5500 },
+    seats: { Business: 30, 'AC Sleeper': 12 },
+    status: 'On Time', delay: 0,
+    amenities: ['WiFi', 'Dining Car', 'AC', 'Power Outlets'],
+    days: ['Daily'],
+  },
+  {
+    id: 'T004', name: 'Lahore Express', number: '44 UP',
+    from: 'Lahore', to: 'Karachi',
+    departure: '10:30', arrival: '30:30', duration: '20h',
+    classes: ['Economy', 'Business', 'AC Sleeper'],
+    prices: { Economy: 1200, Business: 2800, 'AC Sleeper': 4500 },
+    seats: { Economy: 55, Business: 20, 'AC Sleeper': 8 },
+    status: 'On Time', delay: 0,
+    amenities: ['WiFi', 'AC'],
+    days: ['Tue', 'Thu', 'Sat'],
+  },
+  {
+    id: 'T005', name: 'Awam Express', number: '22 DN',
+    from: 'Lahore', to: 'Peshawar',
+    departure: '06:00', arrival: '13:00', duration: '7h',
+    classes: ['Economy'],
+    prices: { Economy: 600 },
+    seats: { Economy: 120 },
+    status: 'On Time', delay: 0,
+    amenities: [],
+    days: ['Daily'],
+  },
+];
+
+export const liveTrains = [
+  {
+    id: 'L001', name: 'Tezgam Express', number: '12 UP',
+    from: 'Karachi', to: 'Lahore',
+    currentLocation: 'Rohri Junction',
+    nextStop: 'Bahawalpur',
+    progress: 62,
+    status: 'On Time',
+    speed: 95,
+    departure: '08:00',
+    expectedArrival: '04:00 (+1)',
+    stopsCompleted: 5,
+    totalStops: 9,
+    lastUpdated: '2 min ago',
+  },
+  {
+    id: 'L002', name: 'Khyber Mail', number: '1 DN',
+    from: 'Karachi', to: 'Peshawar',
+    currentLocation: 'Multan Cantt',
+    nextStop: 'Lahore',
+    progress: 45,
+    status: 'Delayed 45 min',
+    speed: 78,
+    departure: '21:00',
+    expectedArrival: '03:45 (+2)',
+    stopsCompleted: 6,
+    totalStops: 14,
+    lastUpdated: '5 min ago',
+  },
+  {
+    id: 'L003', name: 'Green Line', number: '101 UP',
+    from: 'Karachi', to: 'Islamabad',
+    currentLocation: 'Hyderabad',
+    nextStop: 'Nawabshah',
+    progress: 18,
+    status: 'On Time',
+    speed: 110,
+    departure: '14:00',
+    expectedArrival: '12:00 (+1)',
+    stopsCompleted: 1,
+    totalStops: 8,
+    lastUpdated: 'Just now',
+  },
+];
+
+export const faqs = [
+  { q: 'How do I cancel my ticket?', a: 'Tickets can be cancelled up to 3 hours before departure via the app or at any booking counter. Refunds are processed within 3-5 business days.' },
+  { q: 'Is there a luggage allowance?', a: 'Economy passengers may carry up to 70kg. Business class allows 100kg. AC Sleeper passengers are allowed 140kg. Excess luggage is charged at Rs. 5/kg.' },
+  { q: 'Are meals included in AC Sleeper?', a: 'Yes, all AC Sleeper tickets include complimentary meals served in your cabin. Business class passengers receive a 30% dining car discount.' },
+  { q: 'How early should I arrive at the station?', a: 'We recommend arriving at least 30 minutes before departure. For long-distance trains, 45 minutes is advised.' },
+];
+
+export const offices = [
+  { city: 'Karachi', address: 'City Railway Station, Dr Ziauddin Ahmed Rd', phone: '021-99211000', hours: '6:00 AM – 10:00 PM' },
+  { city: 'Lahore', address: 'Lahore Railway Station, Railway Rd', phone: '042-99210000', hours: '24 Hours' },
+  { city: 'Islamabad', address: 'Margalla Railway Station, Express Way', phone: '051-9280300', hours: '6:00 AM – 10:00 PM' },
+  { city: 'Rawalpindi', address: 'Rawalpindi Railway Station, The Mall', phone: '051-9270100', hours: '24 Hours' },
+];
