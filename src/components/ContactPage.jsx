@@ -21,7 +21,7 @@ export default function ContactPage() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="mb-10">
           <div className="text-rail-green text-sm font-medium uppercase tracking-widest mb-2">Support</div>
-          <h2 className="font-display text-5xl text-white tracking-wide">CONTACT US</h2>
+          <h2 className="font-display text-5xl text-black tracking-wide">CONTACT US</h2>
           <p className="text-rail-muted mt-2 max-w-xl">We're here to help. Reach out through any of the channels below or use the form.</p>
         </div>
 
@@ -37,7 +37,7 @@ export default function ContactPage() {
               </div>
               <div>
                 <div className="text-rail-muted text-xs uppercase tracking-widest">{item.title}</div>
-                <div className="text-white font-semibold mt-0.5">{item.value}</div>
+                <div className="text-black font-semibold mt-0.5">{item.value}</div>
                 <div className="text-rail-muted text-xs mt-0.5">{item.sub}</div>
               </div>
             </div>
@@ -47,7 +47,7 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
           {/* Contact Form */}
           <div className="bg-rail-card border border-rail-border rounded-2xl p-6">
-            <h3 className="text-white font-semibold text-lg mb-5 flex items-center gap-2">
+            <h3 className="text-black font-semibold text-lg mb-5 flex items-center gap-2">
               <Send size={18} className="text-rail-green" /> Send a Message
             </h3>
 
@@ -56,31 +56,31 @@ export default function ContactPage() {
                 <div className="w-16 h-16 bg-rail-green/20 border-2 border-rail-green rounded-full flex items-center justify-center mx-auto mb-4">
                   <CheckCircle size={32} className="text-rail-green" />
                 </div>
-                <div className="text-white font-semibold text-lg mb-2">Message Sent!</div>
-                <div className="text-rail-muted text-sm">We'll get back to you at <span className="text-white">{form.email}</span> within 24 hours.</div>
+                <div className="text-black font-semibold text-lg mb-2">Message Sent!</div>
+                <div className="text-rail-muted text-sm">We'll get back to you at <span className="text-black">{form.email}</span> within 24 hours.</div>
                 <button onClick={() => { setSent(false); setForm({ name: '', email: '', subject: '', message: '' }); }}
                   className="mt-6 text-rail-green text-sm hover:underline">Send another message</button>
               </div>
             ) : (
               <div className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-rail-muted text-xs uppercase tracking-widest mb-2">Name</label>
                     <input type="text" placeholder="Your name" value={form.name}
                       onChange={e => setForm({ ...form, name: e.target.value })}
-                      className="w-full bg-rail-surface border border-rail-border rounded-xl px-4 py-3 text-white text-sm placeholder-rail-muted focus:outline-none focus:border-rail-green transition-colors" />
+                      className="w-full bg-rail-surface border border-rail-border rounded-xl px-4 py-3 text-black text-sm placeholder-rail-muted focus:outline-none focus:border-rail-green transition-colors" />
                   </div>
                   <div>
                     <label className="block text-rail-muted text-xs uppercase tracking-widest mb-2">Email</label>
                     <input type="email" placeholder="you@example.com" value={form.email}
                       onChange={e => setForm({ ...form, email: e.target.value })}
-                      className="w-full bg-rail-surface border border-rail-border rounded-xl px-4 py-3 text-white text-sm placeholder-rail-muted focus:outline-none focus:border-rail-green transition-colors" />
+                      className="w-full bg-rail-surface border border-rail-border rounded-xl px-4 py-3 text-black text-sm placeholder-rail-muted focus:outline-none focus:border-rail-green transition-colors" />
                   </div>
                 </div>
                 <div>
                   <label className="block text-rail-muted text-xs uppercase tracking-widest mb-2">Subject</label>
                   <select value={form.subject} onChange={e => setForm({ ...form, subject: e.target.value })}
-                    className="w-full bg-rail-surface border border-rail-border rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-rail-green transition-colors appearance-none">
+                    className="w-full bg-rail-surface border border-rail-border rounded-xl px-4 py-3 text-black text-sm focus:outline-none focus:border-rail-green transition-colors appearance-none">
                     <option value="">Select a subject...</option>
                     {subjects.map(s => <option key={s}>{s}</option>)}
                   </select>
@@ -89,10 +89,10 @@ export default function ContactPage() {
                   <label className="block text-rail-muted text-xs uppercase tracking-widest mb-2">Message</label>
                   <textarea rows={4} placeholder="Describe your query..." value={form.message}
                     onChange={e => setForm({ ...form, message: e.target.value })}
-                    className="w-full bg-rail-surface border border-rail-border rounded-xl px-4 py-3 text-white text-sm placeholder-rail-muted focus:outline-none focus:border-rail-green transition-colors resize-none" />
+                    className="w-full bg-rail-surface border border-rail-border rounded-xl px-4 py-3 text-black text-sm placeholder-rail-muted focus:outline-none focus:border-rail-green transition-colors resize-none" />
                 </div>
                 <button onClick={handleSend}
-                  className="w-full bg-rail-green hover:bg-rail-darkgreen text-white font-semibold py-3 rounded-xl flex items-center justify-center gap-2 transition-all active:scale-95">
+                  className="w-full bg-rail-green hover:bg-rail-darkgreen text-black font-semibold py-3 rounded-xl flex items-center justify-center gap-2 transition-all active:scale-95">
                   {loading ? <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" /> : <><Send size={16} /> Send Message</>}
                 </button>
               </div>
@@ -101,7 +101,7 @@ export default function ContactPage() {
 
           {/* FAQ */}
           <div className="bg-rail-card border border-rail-border rounded-2xl p-6">
-            <h3 className="text-white font-semibold text-lg mb-5 flex items-center gap-2">
+            <h3 className="text-black font-semibold text-lg mb-5 flex items-center gap-2">
               <HelpCircle size={18} className="text-rail-green" /> Frequently Asked
             </h3>
             <div className="space-y-3">
@@ -110,7 +110,7 @@ export default function ContactPage() {
                   <button
                     onClick={() => setOpenFaq(openFaq === i ? null : i)}
                     className="w-full flex items-center justify-between p-4 text-left hover:bg-rail-surface/50 transition-colors">
-                    <span className="text-white text-sm font-medium pr-4">{faq.q}</span>
+                    <span className="text-black text-sm font-medium pr-4">{faq.q}</span>
                     <ChevronDown size={18} className={`text-rail-muted flex-shrink-0 transition-transform duration-200 ${openFaq === i ? 'rotate-180 text-rail-green' : ''}`} />
                   </button>
                   {openFaq === i && (
@@ -126,7 +126,7 @@ export default function ContactPage() {
 
         {/* Office locations */}
         <div>
-          <h3 className="text-white font-semibold text-lg mb-5 flex items-center gap-2">
+          <h3 className="text-black font-semibold text-lg mb-5 flex items-center gap-2">
             <MapPin size={18} className="text-rail-green" /> Booking Offices
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">

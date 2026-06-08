@@ -53,18 +53,18 @@ export default function SchedulePage({ prefill, onBook }) {
       <div className="max-w-6xl mx-auto px-6">
         <div className="mb-8">
           <div className="text-rail-green text-sm font-medium uppercase tracking-widest mb-2">Schedules</div>
-          <h2 className="font-display text-5xl text-white tracking-wide">FIND YOUR TRAIN</h2>
+          <h2 className="font-display text-5xl text-black tracking-wide">FIND YOUR TRAIN</h2>
         </div>
 
         {/* Search Bar */}
         <div className="bg-rail-card border border-rail-border rounded-2xl p-6 mb-6">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-end">
             <div>
               <label className="block text-rail-muted text-xs uppercase tracking-widest mb-2">From</label>
               <div className="relative">
                 <MapPin size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-rail-green" />
                 <select value={from} onChange={e => setFrom(e.target.value)}
-                  className="w-full bg-rail-surface border border-rail-border rounded-xl pl-9 pr-3 py-3 text-white text-sm focus:outline-none focus:border-rail-green transition-colors appearance-none">
+                  className="w-full bg-rail-surface border border-rail-border rounded-xl pl-9 pr-3 py-3 text-black text-sm focus:outline-none focus:border-rail-green transition-colors appearance-none">
                   <option value="All">All Cities</option>
                   {cities.map(c => <option key={c}>{c}</option>)}
                 </select>
@@ -75,7 +75,7 @@ export default function SchedulePage({ prefill, onBook }) {
               <div className="relative">
                 <MapPin size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-rail-gold" />
                 <select value={to} onChange={e => setTo(e.target.value)}
-                  className="w-full bg-rail-surface border border-rail-border rounded-xl pl-9 pr-3 py-3 text-white text-sm focus:outline-none focus:border-rail-green transition-colors appearance-none">
+                  className="w-full bg-rail-surface border border-rail-border rounded-xl pl-9 pr-3 py-3 text-black text-sm focus:outline-none focus:border-rail-green transition-colors appearance-none">
                   <option value="All">All Cities</option>
                   {cities.map(c => <option key={c}>{c}</option>)}
                 </select>
@@ -87,24 +87,24 @@ export default function SchedulePage({ prefill, onBook }) {
                 <Calendar size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-rail-muted" />
                 <input type="date" value={date} onChange={e => setDate(e.target.value)}
                   style={{ colorScheme: 'dark' }}
-                  className="w-full bg-rail-surface border border-rail-border rounded-xl pl-9 pr-3 py-3 text-white text-sm focus:outline-none focus:border-rail-green transition-colors" />
+                  className="w-full bg-rail-surface border border-rail-border rounded-xl pl-9 pr-3 py-3 text-black text-sm focus:outline-none focus:border-rail-green transition-colors" />
               </div>
             </div>
             <button onClick={() => handleSearch()}
-              className="bg-rail-green hover:bg-rail-darkgreen text-white font-semibold py-3 px-6 rounded-xl flex items-center justify-center gap-2 transition-all active:scale-95">
+              className="bg-rail-green hover:bg-rail-darkgreen text-black font-semibold py-3 px-6 rounded-xl flex items-center justify-center gap-2 transition-all active:scale-95">
               {loading ? <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" /> : <><Search size={18} /> Search</>}
             </button>
           </div>
 
           {/* Class filter */}
-          <div className="flex items-center gap-3 mt-4 pt-4 border-t border-rail-border">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-3 mt-4 pt-4 border-t border-rail-border">
             <Filter size={15} className="text-rail-muted" />
             <span className="text-rail-muted text-xs uppercase tracking-widest">Class:</span>
-            <div className="flex gap-2">
+            <div className="flex flex-wrap gap-2">
               {classes.map(cls => (
                 <button key={cls} onClick={() => setClassFilter(cls)}
                   className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
-                    classFilter === cls ? 'bg-rail-green text-white' : 'bg-rail-surface text-rail-muted hover:text-white border border-rail-border'
+                    classFilter === cls ? 'bg-rail-green text-black' : 'bg-rail-surface text-rail-muted hover:text-black border border-rail-border'
                   }`}>
                   {cls}
                 </button>
@@ -136,7 +136,7 @@ export default function SchedulePage({ prefill, onBook }) {
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-3">
                         <div>
-                          <div className="text-white font-semibold text-lg">{train.name}</div>
+                          <div className="text-black font-semibold text-lg">{train.name}</div>
                           <div className="text-rail-muted text-xs font-mono">#{train.number}</div>
                         </div>
                         <div className={`ml-auto md:hidden px-2 py-1 rounded text-xs font-medium ${
@@ -149,7 +149,7 @@ export default function SchedulePage({ prefill, onBook }) {
                       {/* Route */}
                       <div className="flex items-center gap-3">
                         <div>
-                          <div className="text-white font-semibold text-xl font-mono">{train.departure}</div>
+                          <div className="text-black font-semibold text-xl font-mono">{train.departure}</div>
                           <div className="text-rail-muted text-sm">{train.from}</div>
                         </div>
                         <div className="flex-1 flex flex-col items-center gap-1 px-2">
@@ -164,7 +164,7 @@ export default function SchedulePage({ prefill, onBook }) {
                           <div className="text-rail-muted text-xs">{train.days.join(', ')}</div>
                         </div>
                         <div className="text-right">
-                          <div className="text-white font-semibold text-xl font-mono">{train.arrival.replace('28:', '04:').replace('51:', '03:').replace('36:', '12:').replace('30:', '06:').replace('13:', '13:')}</div>
+                          <div className="text-black font-semibold text-xl font-mono">{train.arrival.replace('28:', '04:').replace('51:', '03:').replace('36:', '12:').replace('30:', '06:').replace('13:', '13:')}</div>
                           <div className="text-rail-muted text-sm">{train.to}</div>
                         </div>
                       </div>
@@ -196,7 +196,7 @@ export default function SchedulePage({ prefill, onBook }) {
                           <div key={cls} className="flex items-center justify-between">
                             <span className="text-rail-muted text-sm">{cls}</span>
                             <div className="flex items-center gap-3">
-                              <span className="text-white font-mono font-semibold text-sm">Rs. {train.prices[cls].toLocaleString()}</span>
+                              <span className="text-black font-mono font-semibold text-sm">Rs. {train.prices[cls].toLocaleString()}</span>
                               <span className={`text-xs ${train.seats[cls] < 10 ? 'text-orange-400' : 'text-rail-green'}`}>
                                 {train.seats[cls]} left
                               </span>
@@ -206,7 +206,7 @@ export default function SchedulePage({ prefill, onBook }) {
                       </div>
                       <button
                         onClick={() => onBook(train)}
-                        className="w-full mt-4 bg-rail-green hover:bg-rail-darkgreen text-white font-semibold py-2.5 rounded-xl flex items-center justify-center gap-2 text-sm transition-all active:scale-95">
+                        className="w-full mt-4 bg-rail-green hover:bg-rail-darkgreen text-black font-semibold py-2.5 rounded-xl flex items-center justify-center gap-2 text-sm transition-all active:scale-95">
                         Book Now <ChevronRight size={16} />
                       </button>
                     </div>

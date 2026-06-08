@@ -1,9 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
-  Train,
   MapPin,
   Calendar,
-  Users,
   ArrowRight,
   Star,
   Shield,
@@ -14,18 +12,13 @@ import { cities } from "../data/mockData";
 export default function HomePage({ onNavigate, onSearchPrefill }) {
   const [from, setFrom] = useState("Karachi");
   const [to, setTo] = useState("Lahore");
-  const [date, setDate] = useState("");
-  const [passengers, setPassengers] = useState(1);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-    const today = new Date();
-    setDate(today.toISOString().split("T")[0]);
-  }, []);
+  const [date, setDate] = useState(
+    () => new Date().toISOString().split("T")[0],
+  );
+  const mounted = true;
 
   const handleSearch = () => {
-    onSearchPrefill({ from, to, date, passengers });
+    onSearchPrefill({ from, to, date });
     onNavigate("schedule");
   };
 
@@ -59,7 +52,7 @@ export default function HomePage({ onNavigate, onSearchPrefill }) {
     },
     {
       title: "Badshahi Mosque",
-      desc: "",
+      desc: "Pakistan",
       img: "/picA.png",
     },
   ];
@@ -108,10 +101,10 @@ export default function HomePage({ onNavigate, onSearchPrefill }) {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-rail-green/5 rounded-full blur-[120px]" />
         {/* Grid pattern */}
         <div
-          className="absolute inset-0 opacity-5"
+          className="absolute inset-0 opacity-10 grid-patt"
           style={{
             backgroundImage:
-              "linear-gradient(#00A651 1px, transparent 1px), linear-gradient(90deg, #00A651 1px, transparent 1px)",
+              "linear-gradient(#00e16d 1px, transparent 1px), linear-gradient(90deg, #00e16d 1px, transparent 1px)",
             backgroundSize: "60px 60px",
           }}
         />
@@ -126,10 +119,10 @@ export default function HomePage({ onNavigate, onSearchPrefill }) {
             <div className="w-2 h-2 bg-rail-green rounded-full animate-pulse" />
             Live Booking Available
           </div>
-          <h1 className="font-display text-6xl md:text-8xl text-white leading-none tracking-wider text-glow mb-4">
+          <h1 className="font-display text-5xl sm:text-6xl md:text-8xl text-black leading-none tracking-wider text-glow mb-4">
             TRAVEL PAKISTAN
           </h1>
-          <h1 className="font-display text-6xl md:text-8xl text-rail-green leading-none tracking-wider">
+          <h1 className="font-display text-5xl sm:text-6xl md:text-8xl text-rail-green leading-none tracking-wider">
             BY RAIL
           </h1>
           <p className="mt-6 text-rail-muted text-lg max-w-xl mx-auto font-body">
@@ -143,7 +136,7 @@ export default function HomePage({ onNavigate, onSearchPrefill }) {
           className={`max-w-4xl mx-auto transition-all duration-700 delay-200 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
           <div className="bg-rail-card border border-rail-border rounded-2xl p-6 md:p-8 glow-green">
-            <h2 className="text-white font-semibold text-lg mb-6">
+            <h2 className="text-black font-semibold text-lg mb-6">
               Find Your Train
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-5 gap-4 items-end">
@@ -247,10 +240,10 @@ export default function HomePage({ onNavigate, onSearchPrefill }) {
               <img
                 src={card.img}
                 alt={card.title}
-                className="w-full h-48 object-cover rounded-xl"
+                className="w-full h-48 sm:h-56 md:h-48 object-cover rounded-xl"
               />
               <div className="p-4">
-                <h3 className="text-white font-semibold text-lg">
+                <h3 className="text-black font-semibold text-lg">
                   {card.title}
                 </h3>
                 <p className="text-rail-muted text-sm">{card.desc}</p>
@@ -271,10 +264,10 @@ export default function HomePage({ onNavigate, onSearchPrefill }) {
               <img
                 src={card.img}
                 alt={card.name}
-                className="w-full h-72 object-cover rounded-xl"
+                className="w-full h-52 sm:h-64 md:h-72 object-cover rounded-xl"
               />
               <div className="p-4">
-                <h3 className="text-white font-semibold text-lg">
+                <h3 className="text-black font-semibold text-lg">
                   {card.name}
                 </h3>
                 <p className="text-rail-muted text-sm">{card.role}</p>
@@ -305,12 +298,12 @@ export default function HomePage({ onNavigate, onSearchPrefill }) {
 
         {/* Stats */}
         <div
-          className={`mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto transition-all duration-700 delay-300 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+          className={`mt-16 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto transition-all duration-700 delay-300 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
           {stats.map((stat, i) => (
             <div
               key={i}
-              className="text-center p-4 bg-rail-card/60 border border-rail-border rounded-xl"
+              className="text-center p-4 bg-rail-card/10 border border-rail-border rounded-xl"
             >
               <div className="font-display text-3xl text-rail-green">
                 {stat.value}
@@ -333,7 +326,7 @@ export default function HomePage({ onNavigate, onSearchPrefill }) {
                 {f.icon}
               </div>
               <div>
-                <div className="text-white font-semibold mb-1">{f.title}</div>
+                <div className="text-black font-semibold mb-1">{f.title}</div>
                 <div className="text-rail-muted text-sm">{f.desc}</div>
               </div>
             </div>

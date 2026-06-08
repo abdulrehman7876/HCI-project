@@ -1,9 +1,6 @@
-//create a login page for raabt-e-ticket with email and password fields and a login button. The page should be styled with tailwind css and should be responsive.
-
-//background should be the same as the rest of the site
-// form should also match the style of the rest of the site with rounded corners
-// also add a register button below the login button that takes the user to a registration page (you don't need to create the registration page, just the button and the navigation)
 import { useState } from "react";
+
+import RegisterPage from "./RegisterPage";
 
 export default function RaabtaETicket({ onNavigate }) {
   const [email, setEmail] = useState("");

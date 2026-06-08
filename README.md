@@ -1,16 +1,74 @@
-# React + Vite
+# Pakistan Railways Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple React + Vite web application for Pakistan Railways, built with Tailwind CSS and responsive UX design. This project demonstrates ticket booking, live status, schedule lookup, gallery, contact details, and user registration.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Responsive user interface for desktop and mobile
+- Ticket booking page with form inputs
+- Live train status lookup
+- Train schedule information
+- Gallery and contact pages
+- User registration page
+- Navigation bar for easy access across pages
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- Vite
+- Tailwind CSS
+- JavaScript
+- HTML / CSS
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```
+New folder/
+├── public/                 # Static assets
+├── src/
+│   ├── assets/             # Images and other static resources
+│   ├── components/         # React page and UI components
+│   │   ├── BookingPage.jsx
+│   │   ├── ContactPage.jsx
+│   │   ├── GalleryPage.jsx
+│   │   ├── HomePage.jsx
+│   │   ├── LiveStatusPage.jsx
+│   │   ├── Navbar.jsx
+│   │   ├── Raabta-e-ticket.jsx
+│   │   ├── RegisterPage.jsx
+│   │   └── SchedulePage.jsx
+│   ├── data/               # Mock data and sample datasets
+│   │   └── mockData.js
+│   ├── App.jsx             # Main application component
+│   ├── index.css           # Global styles
+│   ├── main.jsx            # React entry point
+│   └── App.css             # App-specific styles
+├── index.html              # Vite HTML template
+├── package.json            # Project scripts and dependencies
+├── postcss.config.js       # PostCSS configuration
+├── tailwind.config.js      # Tailwind CSS configuration
+├── vite.config.js          # Vite configuration
+└── README.md               # Project documentation
+```
+
+## Installation
+
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Start the development server:
+
+```bash
+npm run dev
+```
+
+3. Open the app in your browser at the URL shown in the terminal.
+
+## Scripts
+
+- `npm run dev` - start the Vite development server
+- `npm run build` - build the production files
+- `npm run preview` - preview the production build locally

@@ -175,18 +175,18 @@ export default function BookingPage({ selectedTrain, onBack }) {
                     ))}
                   </div>
                   {/* Column headers */}
-                  <div className="flex justify-center mb-2">
-                    <div className="grid gap-1.5" style={{ gridTemplateColumns: 'repeat(5, 2rem)' }}>
+                  <div className="flex justify-center mb-2 overflow-x-auto">
+                    <div className="grid gap-1.5 min-w-[260px]" style={{ gridTemplateColumns: 'repeat(5, minmax(2rem, 1fr))' }}>
                       {['A','B','','C','D'].map((l, i) => (
                         <div key={i} className="text-center text-xs text-rail-muted font-mono">{l}</div>
                       ))}
                     </div>
                   </div>
-                  <div className="flex flex-col items-center gap-1.5 max-h-64 overflow-y-auto">
+                  <div className="flex flex-col items-center gap-1.5 max-h-64 overflow-y-auto overflow-x-auto">
                     {Array.from({ length: SEAT_ROWS }).map((_, row) => (
                       <div key={row} className="flex items-center gap-2">
                         <span className="text-rail-muted text-xs font-mono w-5 text-right">{row + 1}</span>
-                        <div className="grid gap-1.5" style={{ gridTemplateColumns: 'repeat(5, 2rem)' }}>
+                        <div className="grid gap-1.5 min-w-[260px]" style={{ gridTemplateColumns: 'repeat(5, minmax(2rem, 1fr))' }}>
                           {[0, 1, -1, 2, 3].map((col, ci) => {
                             if (col === -1) return <div key={ci} className="w-8 h-8" />;
                             const seatId = row * 4 + col;
@@ -286,7 +286,7 @@ export default function BookingPage({ selectedTrain, onBack }) {
                           onChange={e => setPayment({ ...payment, cardNum: e.target.value.replace(/\D/g, '').replace(/(.{4})/g, '$1 ').trim() })}
                           className="w-full bg-rail-surface border border-rail-border rounded-xl px-4 py-3 text-white font-mono text-sm placeholder-rail-muted focus:outline-none focus:border-rail-green transition-colors" />
                       </div>
-                      <div className="grid grid-cols-2 gap-4">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                           <label className="block text-rail-muted text-xs uppercase tracking-widest mb-2">Expiry</label>
                           <input type="text" placeholder="MM/YY" maxLength={5}

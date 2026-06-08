@@ -28,10 +28,10 @@ export default function LiveStatusPage() {
   return (
     <section id="live" className="min-h-screen pt-24 pb-16 bg-rail-bg">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="mb-8 flex items-start justify-between">
+        <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
           <div>
             <div className="text-rail-green text-sm font-medium uppercase tracking-widest mb-2">Live Tracking</div>
-            <h2 className="font-display text-5xl text-white tracking-wide">TRAIN STATUS</h2>
+            <h2 className="font-display text-5xl text-black tracking-wide">TRAIN STATUS</h2>
           </div>
           <div className="flex items-center gap-2 text-rail-green text-sm bg-rail-green/10 border border-rail-green/30 px-3 py-2 rounded-lg">
             <div className="w-2 h-2 bg-rail-green rounded-full animate-pulse" />
@@ -44,7 +44,7 @@ export default function LiveStatusPage() {
           <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-rail-muted" />
           <input type="text" placeholder="Search by train name, number, or city..."
             value={query} onChange={e => setQuery(e.target.value)}
-            className="w-full bg-rail-card border border-rail-border rounded-xl pl-12 pr-4 py-3.5 text-white text-sm placeholder-rail-muted focus:outline-none focus:border-rail-green transition-colors" />
+            className="w-full bg-rail-card border border-rail-border rounded-xl pl-12 pr-4 py-3.5 text-black text-sm placeholder-rail-muted focus:outline-none focus:border-rail-green transition-colors" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -58,7 +58,7 @@ export default function LiveStatusPage() {
                 }`}>
                 <div className="flex items-start justify-between mb-3">
                   <div>
-                    <div className="text-white font-semibold">{train.name}</div>
+                    <div className="text-black font-semibold">{train.name}</div>
                     <div className="text-rail-muted text-xs font-mono">#{train.number}</div>
                   </div>
                   <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium ${
@@ -84,18 +84,18 @@ export default function LiveStatusPage() {
                   <div className="text-center text-xs text-rail-muted mt-1">{train.progress}% complete</div>
                 </div>
 
-                <div className="grid grid-cols-3 gap-2 text-xs">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
                   <div className="bg-rail-surface rounded-lg p-2 text-center">
                     <div className="text-rail-muted">Location</div>
-                    <div className="text-white text-xs mt-0.5 truncate">{train.currentLocation}</div>
+                    <div className="text-black text-xs mt-0.5 truncate">{train.currentLocation}</div>
                   </div>
                   <div className="bg-rail-surface rounded-lg p-2 text-center">
                     <div className="text-rail-muted">Speed</div>
-                    <div className="text-white font-mono mt-0.5">{train.speed} km/h</div>
+                    <div className="text-black font-mono mt-0.5">{train.speed} km/h</div>
                   </div>
                   <div className="bg-rail-surface rounded-lg p-2 text-center">
                     <div className="text-rail-muted">Updated</div>
-                    <div className="text-white mt-0.5">{train.lastUpdated}</div>
+                    <div className="text-black mt-0.5">{train.lastUpdated}</div>
                   </div>
                 </div>
               </button>
@@ -108,7 +108,7 @@ export default function LiveStatusPage() {
               <div className="bg-rail-card border border-rail-border rounded-2xl p-6 sticky top-24">
                 <div className="flex items-center justify-between mb-6">
                   <div>
-                    <div className="text-white font-semibold text-lg">{selected.name}</div>
+                    <div className="text-black font-semibold text-lg">{selected.name}</div>
                     <div className="text-rail-muted text-xs font-mono">#{selected.number} · {selected.from} → {selected.to}</div>
                   </div>
                   <div className={`px-3 py-1.5 rounded-lg text-xs font-medium ${
@@ -132,7 +132,7 @@ export default function LiveStatusPage() {
                       <div className="flex items-center gap-2 text-rail-muted text-xs mb-1">
                         {item.icon} {item.label}
                       </div>
-                      <div className="text-white font-medium text-sm">{item.value}</div>
+                      <div className="text-black font-medium text-sm">{item.value}</div>
                     </div>
                   ))}
                 </div>
@@ -151,13 +151,13 @@ export default function LiveStatusPage() {
                               current ? 'bg-rail-green ring-4 ring-rail-green/30' :
                               done ? 'bg-rail-green/60' : 'bg-rail-border'
                             }`}>
-                              {done ? <CheckCircle2 size={12} className="text-white" /> : <Circle size={12} className="text-rail-muted" />}
+                              {done ? <CheckCircle2 size={12} className="text-black" /> : <Circle size={12} className="text-rail-muted" />}
                             </div>
                             {i < (stops[selected.id] || []).length - 1 && (
                               <div className={`w-0.5 h-6 ${done ? 'bg-rail-green/60' : 'bg-rail-border'}`} />
                             )}
                           </div>
-                          <div className={`pb-1 text-sm ${current ? 'text-rail-green font-semibold' : done ? 'text-white' : 'text-rail-muted'}`}>
+                          <div className={`pb-1 text-sm ${current ? 'text-rail-green font-semibold' : done ? 'text-black' : 'text-rail-muted'}`}>
                             {stop}
                             {current && <span className="ml-2 text-xs bg-rail-green/20 text-rail-green px-2 py-0.5 rounded">Current</span>}
                           </div>

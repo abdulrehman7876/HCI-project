@@ -1,7 +1,12 @@
 import { useState, useEffect } from "react";
-import { Train, Menu, X, ChevronRight } from "lucide-react";
+import { Menu, X, ChevronRight, Sun, Moon } from "lucide-react";
 
-export default function Navbar({ activeSection, onNavigate }) {
+export default function Navbar({
+  activeSection,
+  onNavigate,
+  darkMode,
+  onToggleTheme,
+}) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -17,7 +22,7 @@ export default function Navbar({ activeSection, onNavigate }) {
     { id: "booking", label: "Book Ticket" },
     { id: "live", label: "Live Status" },
     { id: "contact", label: "Contact" },
-    { id: "gallery", label: "Gallery" },
+    // { id: "gallery", label: "Gallery" },
     { id: "rabta-e-ticket", label: "Raabt-e-Ticket" },
   ];
 
@@ -39,7 +44,7 @@ export default function Navbar({ activeSection, onNavigate }) {
             <img
               className="w-full h-full object-cover"
               src="/logo.png"
-              alt=""
+              alt="Pakistan Railways"
             />
           </div>
         </button>
@@ -52,8 +57,8 @@ export default function Navbar({ activeSection, onNavigate }) {
               onClick={() => onNavigate(link.id)}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                 activeSection === link.id
-                  ? "bg-rail-green text-white"
-                  : "text-rail-muted hover:text-white hover:bg-rail-surface"
+                  ? "bg-rail-green text-white hover:text-rail-green hover:bg-rail-surface"
+                  : "text-rail-muted hover:text-rail-green hover:bg-rail-surface"
               }`}
             >
               {link.label}
@@ -61,8 +66,19 @@ export default function Navbar({ activeSection, onNavigate }) {
           ))}
         </div>
 
-        {/* CTA */}
+        {/* Right side: theme toggle + CTA */}
         <div className="hidden md:flex items-center gap-3">
+          {/* Theme toggle */}
+          <button
+            onClick={onToggleTheme}
+            aria-label={
+              darkMode ? "Switch to light mode" : "Switch to dark mode"
+            }
+            className="w-10 h-10 rounded-lg flex items-center justify-center border border-rail-border text-rail-muted hover:text-rail-green hover:border-rail-green transition-all duration-200"
+          >
+            {darkMode ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+
           <button
             onClick={() => onNavigate("booking")}
             className="flex items-center gap-2 bg-rail-green hover:bg-rail-darkgreen text-white px-5 py-2 rounded-lg text-sm font-semibold transition-all glow-green"
@@ -71,19 +87,30 @@ export default function Navbar({ activeSection, onNavigate }) {
           </button>
         </div>
 
-        {/* Mobile toggle */}
-        <button
-          className="md:hidden text-white p-2"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Mobile right: theme toggle + hamburger */}
+        <div className="md:hidden flex items-center gap-2">
+          <button
+            onClick={onToggleTheme}
+            aria-label={
+              darkMode ? "Switch to light mode" : "Switch to dark mode"
+            }
+            className="w-9 h-9 rounded-lg flex items-center justify-center border border-rail-border text-rail-muted hover:text-rail-green transition-all duration-200"
+          >
+            {darkMode ? <Sun size={16} /> : <Moon size={16} />}
+          </button>
+          <button
+            className="text-rail-text p-2"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-rail-surface border-t border-rail-border px-6 py-4 space-y-1">
+        <div className="md:hidden bg-rail-surface border-t border-rail-border px-6 py-4 space-y-1 transition-colors duration-300">
           {links.map((link) => (
             <button
               key={link.id}
@@ -94,7 +121,7 @@ export default function Navbar({ activeSection, onNavigate }) {
               className={`w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-all ${
                 activeSection === link.id
                   ? "bg-rail-green text-white"
-                  : "text-rail-muted hover:text-white"
+                  : "text-rail-muted hover:text-rail-text"
               }`}
             >
               {link.label}
